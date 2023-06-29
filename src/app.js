@@ -1,11 +1,10 @@
-import express from 'express';
-import morgan from 'morgan';
-
+import express from "express";
+import morgan from "morgan";
 
 //instanciamos el servidor
 const app = express();
 
 //le decimos a la aplicacion que utilice morgan con la configuracion de
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 
 export default app;
