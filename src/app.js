@@ -5,7 +5,7 @@ import morgan from 'morgan';
 //instanciamos el servidor
 const app = express();
 
-//le decimos a la aplicacion que utilice morgan con la configuracion dev
+//le decimos a la aplicacion que utilice morgan con la configuracion de
 app.use(morgan('dev'));
 
 export default app;
