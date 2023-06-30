@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 //Estructura del schema junto con los datos y su tipo de datos
-const schemaForUser = mongoose.Schema({
-  name: {
+const schemaForUser = new mongoose.Schema({
+  username: {
     type: String,
     required: true, //Especificamos que el campo sea obligatorio
     trim: true, //Quitamos los espacios al inicio y al final
@@ -21,4 +21,4 @@ const schemaForUser = mongoose.Schema({
 });
 
 //exportar el modelo
-export default mongoose.model('Users', schemaForUser);
+export default mongoose.model('User', schemaForUser);
