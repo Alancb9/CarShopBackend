@@ -82,3 +82,12 @@ export const login = async (request, response) => {
     response.status(500).json({ msm: error.msm });
   }
 };
+
+export const logout = (request, response) => {
+  
+  //Cuando se haga un logout el token estara vacio y le damos la expiracion
+  response.cookie("token", "", {
+    expires: new Date(0),
+  });
+  return response.sendStatus(200);
+};
