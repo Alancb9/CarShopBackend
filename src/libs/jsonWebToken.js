@@ -1,4 +1,5 @@
 import jsonWebToken from "jsonwebtoken";
+import { TOKEN_SECRET } from "../config.js";
 
 //Encapsulamiento de la funcionalidad del JWT como una promesa
 export const createJsonWebToken = (payload) => {
@@ -6,7 +7,7 @@ export const createJsonWebToken = (payload) => {
     //Generacion del JWT con tiempo de expiracion de 1 dia
     jsonWebToken.sign(
       payload,
-      "secretinvasion",
+      TOKEN_SECRET,
       {
         expiresIn: "1d",
       },
@@ -20,5 +21,3 @@ export const createJsonWebToken = (payload) => {
     );
   });
 };
-
-

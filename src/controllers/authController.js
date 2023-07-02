@@ -84,10 +84,28 @@ export const login = async (request, response) => {
 };
 
 export const logout = (request, response) => {
-  
   //Cuando se haga un logout el token estara vacio y le damos la expiracion
   response.cookie("token", "", {
     expires: new Date(0),
   });
   return response.sendStatus(200);
+};
+
+export const profile = async (request, response) => {
+  //Busca los datos a los cuales pertenecen el id especificado y  los guardamos en foundUserData
+  const foundUserData = await User.findById(request.user.id);
+
+  //Si no encuentra ningun usuario retornamos status, usuario no encontrado
+  if (!foundUserData) {
+    return response.status(400).json({ msm: "User not found :c" });
+  }
+
+  //En caso de que si lo encuentre retorna sus datos correspondientes
+  return response.json({
+    id: foundUserData._id,
+    username: foundUserData.email,
+    email: foundUserData.email,
+    createAt: foundUserData.createAt,
+    updatedAt: foundUserData.updatedAt,
+  });
 };
