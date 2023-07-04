@@ -2,7 +2,7 @@ import { Router } from "express";
 import { requiresAuthentication } from "../middlewares/validateToken.js";
 import {
   gettingTasks,
-  gettingTaks,
+  gettingTask,
   creatingTasks,
   updatingTasks,
   removingTasks,
@@ -15,7 +15,7 @@ const router = Router();
 router.get("/tasks", requiresAuthentication, gettingTasks);
 
 //Cuando se haga una peticion get a tasks(Una sola tarea) se requerira usuario autenticado
-router.get("/tasks/:id", requiresAuthentication, gettingTaks);
+router.get("/tasks/:id", requiresAuthentication, gettingTask);
 
 //Ruta para crear tareas con metodo post, se requiere autenticacion
 router.post("/tasks", requiresAuthentication, creatingTasks);
