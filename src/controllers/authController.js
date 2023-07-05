@@ -39,7 +39,7 @@ export const register = async (request, response) => {
     });
   } catch (error) {
     //En caso de error retornamos status 500
-    response.status(500).json({ msm: error.msm });
+    response.status(500).json({ message: error.message });
   }
 };
 
