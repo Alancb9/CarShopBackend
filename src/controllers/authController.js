@@ -103,9 +103,9 @@ export const profile = async (request, response) => {
   //En caso de que si lo encuentre retorna sus datos correspondientes
   return response.json({
     id: foundUserData._id,
-    username: foundUserData.email,
+    username: foundUserData.username,
     email: foundUserData.email,
-    createAt: foundUserData.createAt,
+    createAt: foundUserData.createdAt,
     updatedAt: foundUserData.updatedAt,
   });
 };
