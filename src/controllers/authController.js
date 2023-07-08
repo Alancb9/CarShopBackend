@@ -6,6 +6,12 @@ export const register = async (request, response) => {
   const { email, password, username } = request.body;
 
   try {
+    //Validacion para correo usado
+    const usedMail = await User.findOne({ email });
+    if (usedMail) {
+      return response.status(400).json(["The email is in use"]);
+    }
+
     //Metodo hash para encriptar la contrasena, nos da como resultado un str aleatorio
     const encryptedPassword = await bcrypt.hash(password, 10);
 

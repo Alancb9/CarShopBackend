@@ -2,18 +2,35 @@ import React from "react";
 import ButtonForm from "../components/buttons/buttonForm";
 import TituloForm from "../components/titles/TituloForm";
 import { useForm } from "react-hook-form"; //libreria para el control de formulario
-import { registeRequest } from "../api/auth.js";
+// import { registeRequest } from "../api/auth.js";
+import { useA } from "../context/AppContext";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const { signup, isAuthenticated, errors: registerError } = useA();
+  const history = useNavigate();
+  // console.log(user);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      history("/task");
+    }
+  }, [isAuthenticated, history]);
 
   return (
     <div className="container-fluid mt-5">
       <form
         onSubmit={handleSubmit(async (datos) => {
-          console.log(datos);
-          const respuesta = await registeRequest(datos);
-          console.log(respuesta);
+          // console.log(datos);
+          // const respuesta = await registeRequest(datos);
+          // console.log(respuesta);
+          signup(datos);
         })}
         className="row"
       >
@@ -24,6 +41,9 @@ const Register = () => {
           <div>
             <TituloForm className={"text-center"} text="Registrarse" />
           </div>
+          {registerError.map((error, indice) => (
+            <div key={indice}>{error}</div>
+          ))}
           <div>
             <label htmlFor="">Nombre de Usuario: </label>
             <input
@@ -31,6 +51,7 @@ const Register = () => {
               placeholder="Ingrese el nombre de usuario"
               {...register("username", { required: true })}
             />
+            {errors.username && <p>El Usuario es requerido</p>}
           </div>
           <div>
             <label htmlFor="">Correo: </label>
@@ -39,6 +60,7 @@ const Register = () => {
               placeholder="Ejm: xxxx@xxxx.com"
               {...register("email", { required: true })}
             />
+            {errors.email && <p>El correo es requerido</p>}
           </div>
 
           <div>
@@ -48,6 +70,7 @@ const Register = () => {
               placeholder="Ingrese su contraseña"
               {...register("password", { required: true })}
             />
+            {errors.password && <p>La contrasena es requerida</p>}
           </div>
 
           <ButtonForm

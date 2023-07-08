@@ -1,4 +1,4 @@
-//Modulo En donde se reali1zaran acciones de guardado eliminacion de datos segun el casoy
+//Modulo En donde se reali1zaran acciones de guardado eliminacion de datos segun el caso
  
 export const reducer = (state, action) => {
   switch (action.type) {
