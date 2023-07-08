@@ -1,6 +1,12 @@
-import React, { createContext, useReducer, useState, useContext } from "react";
+import React, {
+  createContext,
+  useReducer,
+  useState,
+  useContext,
+  useEffect,
+} from "react";
 import { reducer } from "./reducers.jsx";
-import { registerRequest } from "../api/auth.js";
+import { registerRequest, loginRequest } from "../api/auth.js";
 
 //Coleccion en donde se guardaran los datos de los formularios
 const initialState = {
@@ -40,10 +46,9 @@ const AppProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   //Verificar errores mediante el uso del estado
-  const[errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]);
 
-
-  // Registro de usuario para posterior uso de componentes
+  // Registro de usuario para posterior uso de componentes, validaciones y errores
   const signup = async (datos) => {
     try {
       const respuesta = await registerRequest(datos);
@@ -55,10 +60,34 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const signin = async (user) => {
+    try {
+      const respuesta = await loginRequest(user);
+      console.log(respuesta);
+    } catch (error) {
+      if (Array.isArray(error.response.data)) {
+        return setErrors(error.response.data);
+      }
+      console.log(error.response.data);
+      setErrors([error.response.data.message]);
+    }
+  };
+
+  useEffect(() => {
+    if (errors.length > 0) {
+      const timer = setTimeout(() => {
+        setErrors([]);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [errors]);
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <AppContext.Provider value={{ state, dispatch, signup, user, isAuthenticated, errors }}>
+    <AppContext.Provider
+      value={{ state, dispatch, signup, signin, user, isAuthenticated, errors }}
+    >
       {children}
     </AppContext.Provider>
   );

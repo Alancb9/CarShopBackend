@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"; //libreria para el control de formula
 // import { registeRequest } from "../api/auth.js";
 import { useA } from "../context/AppContext";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Register = () => {
   const {
@@ -80,6 +80,13 @@ const Register = () => {
           />
         </div>
       </form>
+
+      <p className="text-center">
+        ¿Ya tienes una cuenta?{" "}
+        <Link to="/login" style={{ textDecoration: "none" }}>
+          Ingresa a tu cuenta
+        </Link>
+      </p>
     </div>
   );
 };

@@ -40,9 +40,9 @@ export const loginValidationSchema = z.object({
     .string({
       required_error: "required data",
     })
-    // .min(7, {
-    //   message: "The password must have a minimum of 7 characters.",
-    // })
+    .min(7, {
+      message: "The password must have a minimum of 7 characters.",
+    })
     // .regex(/\d/, {
     //   message: "the password must contain at least one number",
     // })
