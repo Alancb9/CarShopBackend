@@ -19,7 +19,10 @@ import FormularioTareas from "./components/formularioTareas.jsx";
 import Tareas from "./components/tareas.jsx";
 import ProfilePage from "./components/ProfilePage.jsx";
 import ProtectedRoutes from "./protectedRoutes.jsx";
-
+import { useA } from "./context/AppContext";
+import ButtonLogOut from "./components/buttons/ButtonLogOut.jsx";
+import ButtonCitas from "./components/buttons/ButtonCitas.jsx";
+import CitasAgendadas from "./components/CitasAgendadas.jsx";
 
 function App() {
   //Uso de State
@@ -31,6 +34,9 @@ function App() {
   const [showPresentation, setShowPresentation] = useState(
     () => localStorage.getItem("showPresentation") !== "false"
   );
+  
+  const { user, isAuthenticated } = useA();
+  console.log(user, isAuthenticated);
 
   // Ocultar la sección de presentación al hacer clic en el botón iconUser
 
@@ -88,11 +94,19 @@ function App() {
     return <div>Cargando...</div>;
   }
 
+
   return (
     <BrowserRouter>
       {/* Barra de navegacion */}
       <Navbar className="navbar-custom py-3 fixed-top" variant="dark">
         <span className="navbar-brand ms-5 ps-5">CarShop</span>
+        {isAuthenticated && (
+            <>
+              <span className="ms-3 text-white me-3">
+                Bienvenido, {user.username}
+              </span>
+            </>
+          )}
         <div className="d-flex ms-auto me-5 pe-5">
           <OverlayTrigger
             overlay={<Tooltip id="tooltip-DarkMode">DarkMode</Tooltip>}
@@ -113,14 +127,23 @@ function App() {
               </span>
             </button>
           </OverlayTrigger>
-          <ButtonUser presentacion={setShowPresentation} />
+          {isAuthenticated && (
+            <>
+              <ButtonCitas />
+              <ButtonLogOut />
+            </>
+          )}
+          {!isAuthenticated && (
+            <ButtonUser presentacion={setShowPresentation} />
+          )}
+          
           {/* <button id = 'iconoUser' className = 'ms-3' onClick={handleIconUserClick}>
             <span id = 'iconoMO'><FontAwesomeIcon icon={faUser} beat size="xl" style={{color: "#ffffff",}} /></span>
           </button> */}
         </div>
       </Navbar>
       {/* Seccion de presentacio1n */}
-      {showPresentation && (
+      {isAuthenticated && (
         <section
           className={`mt-5 py-5 text-center wipe-in-top-right section-custom ${
             isDarkMode ? "dark-mode" : ""
@@ -130,7 +153,7 @@ function App() {
           <p>Aquí puedes ingresar los datos de tu vehículo.</p>
         </section>
       )}
-      ;{/* Main en donde se most1raran los formu1larios */}
+      {/* Main en donde se most1raran los formu1larios */}
       <main className={`container-fuild ${isDarkMode ? "dark-mode" : ""}`}>
         <Fragment>
           <Routes>
@@ -139,7 +162,7 @@ function App() {
             <Route exact path="/" element={<Principal />} />
 
             {/* Rutas para usuarios logeados */}
-            <Route element={<ProtectedRoutes/>}> 
+            <Route element={<ProtectedRoutes />}>
               <Route exact path="/tasks" element={<Tareas />} />
               <Route exact path="/add-task" element={<FormularioTareas />} />
               <Route exact path="/tasks/:id" element={<FormularioTareas />} />
@@ -149,6 +172,7 @@ function App() {
               <Route exact path="/orden" element={<OrdenTrabajo />} />
               <Route exact path="/exito" element={<Exito />} />
               <Route exact path="/profile" element={<ProfilePage />} />
+              <Route exact path="/citasAgendadas" element={<CitasAgendadas />} />
             </Route>
           </Routes>
         </Fragment>

@@ -7,7 +7,7 @@ function ProtectedRoutes() {
   console.log(loading, isAuthenticated);
   //Si esta cargando la pagina
   if (loading) {
-    return <h1>Cargando...</h1>;
+    <div>Cargando...</div>;
   }
   //Si no esta cargando la pagina y no esta autenticado
   if (!loading && !isAuthenticated) {

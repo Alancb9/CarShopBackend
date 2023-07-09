@@ -1,196 +1,211 @@
 html,
 body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-
 #root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* pagina principal */
+#principal {
+  height: 80vh !important;
+}
+
+/* Boton ver pedidos */
+.no-background-button {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+/* Tabla citas agendadas */
+.checkbox-column {
+  width: 1%;
+  white-space: nowrap;
+}
+.col-2 {
+  width: 1%;
 }
 
 /* Footer */
 footer {
-    background-color: black;
-    flex-shrink: 0;
-    margin-top: auto;
-    padding: 1rem;
+  background-color: black;
+  flex-shrink: 0;
+  margin-top: auto;
+  padding: 1rem;
 }
-
-
 
 /* Seccion nav bar */
 .navbar-custom {
-    background-color: black;
+  background-color: black;
 }
 
 /* Icono user */
-#iconoUser{
-    background-color:  black;
-    border: none;
+#iconoUser {
+  background-color: black;
+  border: none;
 }
 
 /* Seccion de bienvenida */
 .section-custom {
-    background-color: #f3f3f3;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  background-color: #f3f3f3;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .section-custom.dark-mode {
-    background-color: hwb(210 6% 87% / 0.955);
-    color: #f5f5f5;
+  background-color: hwb(210 6% 87% / 0.955);
+  color: #f5f5f5;
 }
 
 /* Seccion main de formularios */
 main {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    width: 100%;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100%;
 }
 
 .container-fuild.dark-mode {
-    background-color: hwb(210 6% 87% / 0.955);
-    color: #f5f5f5;
+  background-color: hwb(210 6% 87% / 0.955);
+  color: #f5f5f5;
 }
-
 
 /* Icono de git */
 .fixed-icon {
-    position: fixed;
-    bottom: 10px;
-    right: 20px;
-    z-index: 10;
-    width: 50px;
-    height: 50px;
-    border-radius: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  border-radius: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
 }
 
 .fixed-icon svg {
-    width: 30px;
-    height: 30px;
-    fill: white;
-    ;
+  width: 30px;
+  height: 30px;
+  fill: white;
 }
 
 /* Form del cliente */
 .form-cliente {
-    max-width: 700px;
-    margin: 0 auto;
-
+  max-width: 700px;
+  margin: 0 auto;
 }
+
+/* Form login */
 
 
 /* Form Servicios*/
 .form-container {
-    border: 2px solid #ccc;
-    padding: 20px;
-    margin-top: 20px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-check {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .form-check-label:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .form-check-input:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .form-check-label {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 /* Orden Trabajo */
 #cliente {
-    /* border-right: 1px solid #ccc; */
-    padding-right: 80px;
-    margin-right: 10px;
+  /* border-right: 1px solid #ccc; */
+  padding-right: 80px;
+  margin-right: 10px;
 }
 
 #estadoVehiculo {
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-    margin-top: 10px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  margin-top: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #serviciosSeleccionados {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #botones {
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-    margin-top: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  margin-top: 10px;
 }
 
 /* Boton interuptor */
 
 .switch {
-    background: #343D5B;
-    border-radius: 1000px;
-    border: none;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    outline: none;
+  background: #343d5b;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  outline: none;
 }
 
 .switch::after {
-    content: "";
-    display: block;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    background: #F1F1F1;
-    top: 0;
-    left: 0;
-    right: unset;
-    border-radius: 100px;
-    transition: .3s ease all;
-    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .2);
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background: #f1f1f1;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 100px;
+  transition: 0.3s ease all;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .switch.active {
-    background: yellow;
-    color: #000;
+  background: yellow;
+  color: #000;
 }
 
 .switch.active::after {
-    right: 0;
-    left: unset;
+  right: 0;
+  left: unset;
 }
 
 .switch span {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    display: block;
-    background: none;
-    color: #fff;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background: none;
+  color: #fff;
 }
-
-

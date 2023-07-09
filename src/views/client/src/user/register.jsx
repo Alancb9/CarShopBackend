@@ -1,6 +1,5 @@
 import React from "react";
 import ButtonForm from "../components/buttons/buttonForm";
-import TituloForm from "../components/titles/TituloForm";
 import { useForm } from "react-hook-form"; //libreria para el control de formulario
 // import { registeRequest } from "../api/auth.js";
 import { useA } from "../context/AppContext";
@@ -19,12 +18,12 @@ const Register = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      history("/task");
+      history("/tasks");
     }
   }, [isAuthenticated, history]);
 
   return (
-    <div className="container-fluid mt-5">
+    <div id="principal" className="container-fluid mt-5">
       <form
         onSubmit={handleSubmit(async (datos) => {
           // console.log(datos);
@@ -33,51 +32,73 @@ const Register = () => {
           signup(datos);
         })}
         className="row"
+        
       >
-        <div className="col-12 col-md-4" style={{ width: "30%" }}>
-          Proximamente imagen
+        <div className="col-12 col-md-4 pe-0 ps-0" style={{ width: "40%" }}>
+          <img
+            src="https://img.freepik.com/vector-premium/plantilla-formulario-registro-diseno-plano_23-2147976665.jpg?w=740"
+            alt="Próximamente imagen"
+            className="img-fluid"
+            style={{ width: "100%", height: "100%" }}
+          />
         </div>
-        <div className="col-12 col-md-8" style={{ width: "70%" }}>
-          <div>
-            <TituloForm className={"text-center"} text="Registrarse" />
+        <div className="col-12 col-md-8 pt-5 px-5 mt-5" style={{ width: "60%" }}>
+          <div className="col-12" >
+            <h3 className="text-center">Registrarse</h3>
           </div>
           {registerError.map((error, indice) => (
             <div key={indice}>{error}</div>
           ))}
-          <div>
-            <label htmlFor="">Nombre de Usuario: </label>
-            <input
-              type="text"
-              placeholder="Ingrese el nombre de usuario"
-              {...register("username", { required: true })}
-            />
+          <div className="mt-2">
+            <div className="col-12">
+              <label htmlFor="userame" className="form-label">Nombre de Usuario: </label>
+            </div>
+            <div className="col-12">
+              <input
+                type="text"
+                placeholder="Ingrese el nombre de usuario"
+                {...register("username", { required: true })}
+                className="form-control rounded  w-100"
+              />
+            </div>
             {errors.username && <p>El Usuario es requerido</p>}
           </div>
-          <div>
-            <label htmlFor="">Correo: </label>
-            <input
-              type="email"
-              placeholder="Ejm: xxxx@xxxx.com"
-              {...register("email", { required: true })}
-            />
+          <div className="mt-2">
+            <div className="col-12">
+              <label htmlFor="email" className="form-label">Correo: </label>
+            </div>
+            <div className="col-12">
+              <input
+                type="email"
+                placeholder="Ejm: xxxx@xxxx.com"
+                {...register("email", { required: true })}
+                className="form-control rounded w-100"
+              />
+            </div>
             {errors.email && <p>El correo es requerido</p>}
           </div>
 
-          <div>
-            <label htmlFor="">Contraseña: </label>
-            <input
-              type="text"
-              placeholder="Ingrese su contraseña"
-              {...register("password", { required: true })}
-            />
+          <div className="mt-2">
+            <div className="col-12">
+              <label htmlFor="passwrod" className="form-label">Contraseña: </label>
+            </div>
+            <div className="col-12">
+              <input
+                type="text"
+                placeholder="Ingrese su contraseña"
+                {...register("password", { required: true })}
+                className="form-control rounded w-100"
+              />
+            </div>
             {errors.password && <p>La contrasena es requerida</p>}
           </div>
-
-          <ButtonForm
-            typeButton="submit"
-            classButton="btn btn-primary"
-            text="Registrarse"
-          />
+          <div className="text-end mt-4">
+            <ButtonForm
+              typeButton="submit"
+              classButton="btn btn-primary"
+              text="Registrarse"
+            />
+          </div>
         </div>
       </form>
 

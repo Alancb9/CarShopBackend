@@ -125,7 +125,7 @@ const AppProvider = ({ children }) => {
 
   return (
     <AppContext.Provider
-      value={{ state, dispatch, signup, signin, loading, user, isAuthenticated, errors }}
+      value={{ state, dispatch, signup, signin, loading, user, isAuthenticated, errors, setIsAuthenticated, }}
     >
       {children}
     </AppContext.Provider>
