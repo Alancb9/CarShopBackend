@@ -1,8 +1,24 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { getDataRequest } from "../api/dataEntry.js";
 
 const CitasAgendadas = () => {
   const [selectAll, setSelectAll] = useState(false);
+  const [datos, setDatos] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const respuesta = await getDataRequest();
+      setDatos(respuesta.data);
+    };
+    fetchData();
+  }, []);
+
+  // const getData = async () => {
+  //   const respuesta = await getDataRequest();
+  //   return respuesta 
+  // };
+
 
   const handleSelectAllChange = (event) => {
     setSelectAll(event.target.checked);
@@ -13,8 +29,11 @@ const CitasAgendadas = () => {
         <thead>
           <tr>
             <th className="checkbox-column">
-              <input type="checkbox" checked={selectAll}
-                onChange={handleSelectAllChange}/>
+              <input
+                type="checkbox"
+                checked={selectAll}
+                onChange={handleSelectAllChange}
+              />
             </th>
             <th scope="col" className="text-center">
               Nombre del cliente
@@ -32,24 +51,18 @@ const CitasAgendadas = () => {
         </thead>
         <tbody>
           {/* Aquí puedes agregar las filas de datos de tu tabla */}
-          <tr>
-            <td className="checkbox-column">
-              <input type="checkbox" checked={selectAll}/>
-            </td>
-            <td className="text-center">Nombre del cliente 1</td>
-            <td className="text-center">Nombre del vehículo 1</td>
-            <td className="text-center">Fecha de entrega 1</td>
-            <td className="text-center">Enviada</td>
-          </tr>
-          <tr>
-            <td className="checkbox-column">
-              <input type="checkbox" checked={selectAll}/>
-            </td>
-            <td className="text-center">Nombre del cliente 2</td>
-            <td className="text-center">Nombre del vehículo 2</td>
-            <td className="text-center"> Fecha de entrega 2</td>
-            <td className="text-center">Enviada</td>
-          </tr>
+          {datos.map((item, index) => (
+            <tr key={index}>
+              <td className="checkbox-column">
+                <input type="checkbox" checked={selectAll} />
+              </td>
+              <td className="text-center">{item.client}</td>
+              <td className="text-center">{item.carModel}</td>
+              <td className="text-center">{item.orderDate}</td>
+              <td className="text-center">Enviada</td>
+            </tr>
+          ))}
+
           {/* Agrega más filas según tus datos */}
         </tbody>
       </table>

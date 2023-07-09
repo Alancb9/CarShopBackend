@@ -1,13 +1,54 @@
 import mongoose from "mongoose";
+import { object } from "zod";
 
 //Estructura del Schema para las tareas
 const schemaFortask = new mongoose.Schema(
   {
-    titleTask: {
+    client: {
       type: String, //Tipo de dato string
       required: true, //Especifico que el campo sea obligatorio
     },
-    descriptionTask: {
+    email: {
+      type: String, //Tipo de dato string
+      required: true, //Especifico que el campo sea obligatorio
+    },
+    carStatus: {
+      type: String, //Tipo de dato string
+      required: true, //Especifico que el campo sea obligatorio
+    },
+    orderDate:{
+      type: String, //Tipo de dato string
+      required: true, //Especifico que el campo sea obligatorio
+    },
+    personalIdentification:{
+      type: String, //Tipo de dato string
+      required: true, //Especifico que el campo sea obligatorio
+    },
+    carBrand:{
+      type: String, //Tipo de dato string
+      required: true, //Especifico que el campo sea obligatorio
+    },
+    carModel:{
+      type: String, //Tipo de dato string
+      required: true, //Especifico que el campo sea obligatorio
+    },
+    tankLevel:{
+      type: String, //Tipo de dato string
+      required: true, //Especifico que el campo sea obligatorio
+    },
+    contactNumber: {
+      type: String, //Tipo de dato string
+      required: true, //Especifico que el campo sea obligatorio
+    },
+    plaqueCar: {
+      type: String, //Tipo de dato string
+      required: true, //Especifico que el campo sea obligatorio
+    },
+    selectedServices: {
+      type: Array, //Tipo de dato string
+      required: true, //Especifico que el campo sea obligatorio
+    },
+    idType: {
       type: String, //Tipo de dato string
       required: true, //Especifico que el campo sea obligatorio
     },

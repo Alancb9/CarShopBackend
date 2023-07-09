@@ -6,7 +6,7 @@ import { useA } from '../../context/AppContext';
 
 const ButtonLogOut = () => {
     const navigate = useNavigate();
-    const { isAuthenticated, setIsAuthenticated } = useA();
+    const { setIsAuthenticated } = useA();
     const handleIconUserClick = () => {
         
         document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';//Borrar cookie
