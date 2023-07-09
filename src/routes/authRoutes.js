@@ -4,6 +4,7 @@ import {
   register,
   logout,
   profile,
+  verifyToken,
 } from "../controllers/authController.js";
 import { requiresAuthentication } from "../middlewares/validateToken.js";
 import { validationScheme } from "../middlewares/validatorData.js"; //Importacion de la validacion del esquema
@@ -25,5 +26,8 @@ router.post("/logout", logout);
 
 //Sirve para hacer la funcionalidad de autenticacion de rutas protegidas
 router.get("/profile", requiresAuthentication, profile);
+
+//Ruta para verificar el token
+router.get("/verify-token", verifyToken);
 
 export default router;

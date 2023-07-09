@@ -15,7 +15,6 @@ const Login = () => {
   const { signin, errors: signinError } = useA();
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data, "hola");
     signin(data);
   });
 

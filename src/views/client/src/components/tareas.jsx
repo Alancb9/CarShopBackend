@@ -1,5 +1,5 @@
-function tareas() {
+function Tareas() {
   return <div>taskFormPage</div>;
 }
 
-export default tareas;
+export default Tareas;

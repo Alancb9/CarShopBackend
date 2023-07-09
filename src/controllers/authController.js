@@ -1,6 +1,8 @@
 import User from "../models/userModel.js";
 import bcrypt from "bcryptjs"; // libreria de encriptacion
 import { createJsonWebToken } from "../libs/jsonWebToken.js";
+import jsonWebToken from "jsonwebtoken";; //Importar jsonwebtoken
+import { TOKEN_SECRET } from "../config.js";
 
 export const register = async (request, response) => {
   const { email, password, username } = request.body;
@@ -113,5 +115,33 @@ export const profile = async (request, response) => {
     email: foundUserData.email,
     createAt: foundUserData.createdAt,
     updatedAt: foundUserData.updatedAt,
+  });
+};
+
+export const verifyToken = async (request, response) => {
+  //Obtiene el token de las cookies
+  const { token } = request.cookies;
+
+  if (!token) {
+    //Si no hay token retorna status 401
+    return response.status(401).json({ msm: "No autorized" });
+  }
+
+  jsonWebToken.verify(token, TOKEN_SECRET, async (error, user) => {
+    if (error) {
+      return response.status(401).json({ msm: "No autorized" });
+    }
+    //Usuario autenticado encontrado
+    const userFound = await User.findById(user.id);
+    if (!userFound) {
+      //Si no encuentra el usuario retorna status 401
+      return response.status(401).json({ msm: "No autorized" });
+    }
+    //Si lo encuentra retorna sus datos
+    return response.json({
+      id: userFound._id,
+      username: userFound.username,
+      email: userFound.email
+    });
   });
 };

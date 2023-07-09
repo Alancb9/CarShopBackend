@@ -8,7 +8,8 @@ import cors from "cors"; //Libreria para poder comunicarnos en dominios diferent
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: 'http://localhost:3000',
+    credentials: true
 })); //Especifico que dominios se pueden comunicar con el back
 
 //le decimos a la aplicacion que utilice morgan con la configuracion de

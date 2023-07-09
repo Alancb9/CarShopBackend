@@ -1,5 +1,5 @@
-function formularioTareas() {
+function FormularioTareas() {
   return <div>taskFormPage</div>;
 }
 
-export default formularioTareas;
+export default FormularioTareas;
