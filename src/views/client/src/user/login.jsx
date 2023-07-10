@@ -12,12 +12,14 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  //useA es un custom hook que se encuentra en el archivo AppContext.jsx
   const { signin, isAuthenticated, errors: signinError } = useA();
 
   const onSubmit = handleSubmit((data) => {
     signin(data);
   });
 
+  //Si el usuario esta autenticado lo redirigimos a la pagina de cliente
   if (isAuthenticated) {
     return <Navigate to="/cliente" replace />;
   }
@@ -45,7 +47,7 @@ const Login = () => {
                   className="form-control rounded mt-2 w-100"
                 />
               </div>
-              {errors.email && <p>El correo es requerido</p>}
+              {errors.email && <p className="alert alert-danger" role="alert">El correo es requerido</p>}
             </div>
             <div className="mt-3">
               <div>
@@ -59,7 +61,7 @@ const Login = () => {
                   className="form-control rounded mt-2 w-100 h-auto"
                 />
               </div>
-              {errors.password && <p>La contrasena es requerida</p>}
+              {errors.password && <p className="alert alert-danger" role="alert">La contrasena es requerida</p>}
             </div>
 
             <div className="mt-4 ">

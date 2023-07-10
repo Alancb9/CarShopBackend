@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import FormClient from "./components/FormClient.jsx";
 import FormVehiculo from "./components/FormVehiculo.jsx";
 import Servicios from "./components/Servicios.jsx";
@@ -15,9 +14,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import ButtonUser from "./components/buttons/buttonUser.jsx";
 import Register from "./user/register.jsx";
-import FormularioTareas from "./components/formularioTareas.jsx";
 import Tareas from "./components/tareas.jsx";
-import ProfilePage from "./components/ProfilePage.jsx";
 import ProtectedRoutes from "./protectedRoutes.jsx";
 import { useA } from "./context/AppContext";
 import ButtonLogOut from "./components/buttons/ButtonLogOut.jsx";
@@ -164,14 +161,14 @@ function App() {
             {/* Rutas para usuarios logeados */}
             <Route element={<ProtectedRoutes />}>
               <Route exact path="/tasks" element={<Tareas />} />
-              <Route exact path="/add-task" element={<FormularioTareas />} />
-              <Route exact path="/tasks/:id" element={<FormularioTareas />} />
+              {/* <Route exact path="/add-task" element={<FormularioTareas />} />
+              <Route exact path="/tasks/:id" element={<FormularioTareas />} /> */}
               <Route exact path="/cliente" element={<FormClient />} />
               <Route exact path="/vehiculo" element={<FormVehiculo />} />
               <Route exact path="/servicios" element={<Servicios />} />
               <Route exact path="/orden" element={<OrdenTrabajo />} />
               <Route exact path="/exito" element={<Exito />} />
-              <Route exact path="/profile" element={<ProfilePage />} />
+              {/* <Route exact path="/profile" element={<ProfilePage />} /> */}
               <Route exact path="/citasAgendadas" element={<CitasAgendadas />} />
             </Route>
           </Routes>

@@ -61,7 +61,7 @@ const Register = () => {
                 className="form-control rounded  w-100"
               />
             </div>
-            {errors.username && <p>El Usuario es requerido</p>}
+            {errors.username && <p className="alert alert-danger" role="alert">El Usuario es requerido</p>}
           </div>
           <div className="mt-2">
             <div className="col-12">
@@ -75,7 +75,7 @@ const Register = () => {
                 className="form-control rounded w-100"
               />
             </div>
-            {errors.email && <p>El correo es requerido</p>}
+            {errors.email && <p className="alert alert-danger" role="alert">El correo es requerido</p>}
           </div>
 
           <div className="mt-2">
@@ -90,7 +90,7 @@ const Register = () => {
                 className="form-control rounded w-100"
               />
             </div>
-            {errors.password && <p>La contrasena es requerida</p>}
+            {errors.password && <p className="alert alert-danger" role="alert">La contrasena es requerida</p>}
           </div>
           <div className="text-end mt-4">
             <ButtonForm

@@ -2,6 +2,7 @@ import React from "react";
 import ParagraphsForm from "./paragraphs/paragraphsForm.jsx";
 import '../components/styles/App.css'
 
+//Landing page
 const Principal = () => {
   return (
     <div id = 'principal' className="d-flex justify-content-center align-items-center flex-column pt-5">

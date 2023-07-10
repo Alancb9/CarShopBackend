@@ -3,7 +3,6 @@ import { TOKEN_SECRET } from "../config.js";
 
 // Autenticacion con token para ejecutar la siguiente ruta con next
 export const requiresAuthentication = (request, response, next) => {
-  console.log("hola3");
   const { token } = request.cookies;
 
   //Validacion de si llego el token

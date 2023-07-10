@@ -21,10 +21,7 @@ export const recordValidationSchema = z.object({
     })
     .regex(/\d/, {
       message: "the password must contain at least one number",
-    })
-    // .regex(/[!@#$%^&*(),.?":{}|<>]/, {
-    //   message: "password must contain at least one special character",
-    // }),
+    }),
 });
 
 //Esquema para validar el login con la libreria zod
@@ -42,11 +39,5 @@ export const loginValidationSchema = z.object({
     })
     .min(7, {
       message: "The password must have a minimum of 7 characters.",
-    })
-    // .regex(/\d/, {
-    //   message: "the password must contain at least one number",
-    // })
-    // .regex(/[!@#$%^&*(),.?":{}|<>]/, {
-    //   message: "password must contain at least one special character",
-    // }),
+    }),
 });
