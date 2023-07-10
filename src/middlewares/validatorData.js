@@ -1,6 +1,7 @@
 //Middleware para validar el esquema
 export const validationScheme = (schema) => (request, response, next) => {
   try {
+    console.log('hola2')
     schema.parse(request.body); //Validamos con parse el schema, si lanza un error tumba el servidor por eso va dentro de un trycatch
     next();
   } catch (error) {

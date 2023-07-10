@@ -35,5 +35,8 @@ export const taskValidationSchema = z.object({
   idType: z.string({
     required_error: "the id type is required",
   }),
+  stateTask: z.string({
+    required_error: "the state task is required",
+  }),
   dateTask: z.string().datetime().optional(), //Validamos que sea una fecha y que sea opcional
 });

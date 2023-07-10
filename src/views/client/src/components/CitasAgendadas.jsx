@@ -59,7 +59,7 @@ const CitasAgendadas = () => {
               <td className="text-center">{item.client}</td>
               <td className="text-center">{item.carModel}</td>
               <td className="text-center">{item.orderDate}</td>
-              <td className="text-center">Enviada</td>
+              <td className="text-center">{item.stateTask}</td>
             </tr>
           ))}
 

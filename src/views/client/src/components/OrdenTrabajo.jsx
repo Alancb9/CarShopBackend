@@ -82,6 +82,7 @@ const OrdenTrabajo = () => {
     plaqueCar: state.vehiculo.placa,
     selectedServices: lista,
     idType: state.cliente.tipoIdentificacion,
+    stateTask: "Enviada",
     // usertask: user.id,
   };
 

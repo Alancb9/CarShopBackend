@@ -4,6 +4,7 @@ import authRoutes from "./routes/authRoutes.js";
 import cookieParser from "cookie-parser"; // middleware que nos permite convertir un cookie str en Json
 //instanciamos el servidor
 import taskRoutes from "./routes/taskRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 import cors from "cors"; //Libreria para poder comunicarnos en dominios diferentes
 const app = express();
 
@@ -22,5 +23,5 @@ app.use(cookieParser());
 //Procesamiento de rutas
 app.use("/api", authRoutes);
 app.use("/api", taskRoutes);
-
+app.use("/api", orderRoutes);
 export default app;

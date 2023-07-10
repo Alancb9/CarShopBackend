@@ -16,23 +16,23 @@ const schemaFortask = new mongoose.Schema(
       type: String, //Tipo de dato string
       required: true, //Especifico que el campo sea obligatorio
     },
-    orderDate:{
+    orderDate: {
       type: String, //Tipo de dato string
       required: true, //Especifico que el campo sea obligatorio
     },
-    personalIdentification:{
+    personalIdentification: {
       type: String, //Tipo de dato string
       required: true, //Especifico que el campo sea obligatorio
     },
-    carBrand:{
+    carBrand: {
       type: String, //Tipo de dato string
       required: true, //Especifico que el campo sea obligatorio
     },
-    carModel:{
+    carModel: {
       type: String, //Tipo de dato string
       required: true, //Especifico que el campo sea obligatorio
     },
-    tankLevel:{
+    tankLevel: {
       type: String, //Tipo de dato string
       required: true, //Especifico que el campo sea obligatorio
     },
@@ -52,6 +52,11 @@ const schemaFortask = new mongoose.Schema(
       type: String, //Tipo de dato string
       required: true, //Especifico que el campo sea obligatorio
     },
+    stateTask: {
+      type: String, //Tipo de dato string
+      required: true, //Especifico que el campo sea obligatorio
+      default: "Enviada", //Estado por defecto de la tarea
+    },
     dateTask: {
       type: Date, //Tipo de dato string
       default: Date.now, //Fecha en que se crea la tarea
@@ -59,7 +64,7 @@ const schemaFortask = new mongoose.Schema(
     userTask: {
       type: mongoose.Schema.Types.ObjectId, //Id de mongoDb que referencia a otro modelo
       ref: "User", //Referencia al modelo user
-      required: true,  //Especifico que el campo sea requerido
+      required: true, //Especifico que el campo sea requerido
     },
   },
   {
