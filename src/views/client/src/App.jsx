@@ -189,7 +189,7 @@ function App() {
         show={tooltipVisibleGithub}
       >
         <a
-          href="https://github.com/Alancb9/CarShop"
+          href="https://github.com/Alancb9/CarShopBackend"
           target="_blank"
           rel="noreferrer"
           className="fixed-icon me-5"
