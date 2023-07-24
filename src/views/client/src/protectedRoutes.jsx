@@ -6,9 +6,6 @@ function ProtectedRoutes() {
   const { loading, isAuthenticated } = useA();
   console.log(loading, isAuthenticated);
   //Si esta cargando la pagina
-  if (loading) {
-    <div>Cargando...</div>;
-  }
   //Si no esta cargando la pagina y no esta autenticado
   if (!loading && !isAuthenticated) {
     return <Navigate to="/login" replace />; //Redirige a la pagina de login

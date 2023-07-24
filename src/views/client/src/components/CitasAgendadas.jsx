@@ -14,10 +14,6 @@ const CitasAgendadas = () => {
     fetchData();
   }, []);
 
-  // const getData = async () => {
-  //   const respuesta = await getDataRequest();
-  //   return respuesta 
-  // };
 
 
   const handleSelectAllChange = (event) => {

@@ -23,7 +23,7 @@ export const register = async (request, response) => {
       password: encryptedPassword, //Paso como valor la contrasena encriptada
       username,
     });
-    // console.log(newUser);
+  
 
     //Guardamos en mongoDB
     const userSaved = await newUser.save();
@@ -31,11 +31,9 @@ export const register = async (request, response) => {
     //creacion del token
     const token = await createJsonWebToken({ id: userSaved._id });
 
-    //response.json({ token }); //Devuelve token
+    
     response.cookie("token", token);
-    // response.json({
-    //   msm: "User successfully",
-    // });
+  
 
     //Devolvemos el dato json sin el password
     response.json({

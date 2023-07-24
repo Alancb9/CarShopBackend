@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { object } from "zod";
+
 
 //Estructura del Schema para las tareas
 const schemaFortask = new mongoose.Schema(

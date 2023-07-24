@@ -2,7 +2,6 @@ import Task from '../models/taskModel.js';
 
 // Controlador para actualizar el estado de una tarea específica
 export const updateOrder = async (request, res) => {
-//   const { taskId } = request.params;
   const { state, id } = request.body;
   try {
     // Buscar la tarea por ID

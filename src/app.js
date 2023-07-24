@@ -9,9 +9,17 @@ import cors from "cors"; //Libreria para poder comunicarnos en dominios diferent
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', 'http://192.168.100.4:3000'],
     credentials: true
 })); //Especifico que dominios se pueden comunicar con el back
+
+app.use((req, res, next) => {
+    // res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.setHeader("Access-Control-Allow-Origin", "http://192.168.100.4:3000");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    next();
+});
 
 //le decimos a la aplicacion que utilice morgan con la configuracion de
 app.use(morgan("dev"));

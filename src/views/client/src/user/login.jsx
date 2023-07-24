@@ -1,6 +1,5 @@
 import React from "react";
 import ButtonForm from "../components/buttons/buttonForm";
-// import TituloForm from "../components/titles/TituloForm";
 import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form"; //libreria para el control de formulario
 import { useA } from "../context/AppContext";

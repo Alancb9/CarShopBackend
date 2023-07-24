@@ -1,7 +1,6 @@
 import React from "react";
 import ButtonForm from "../components/buttons/buttonForm";
 import { useForm } from "react-hook-form"; //libreria para el control de formulario
-// import { registeRequest } from "../api/auth.js";
 import { useA } from "../context/AppContext";
 import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -14,7 +13,6 @@ const Register = () => {
   } = useForm();
   const { signup, isAuthenticated, errors: registerError } = useA();
   const history = useNavigate();
-  // console.log(user);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -26,9 +24,6 @@ const Register = () => {
     <div id="principal" className="container-fluid mt-5">
       <form
         onSubmit={handleSubmit(async (datos) => {
-          // console.log(datos);
-          // const respuesta = await registeRequest(datos);
-          // console.log(respuesta);
           signup(datos);
         })}
         className="row"

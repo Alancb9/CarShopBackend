@@ -1,4 +1,3 @@
-// import axios from "axios"; //Libreria que maneja peticiones fetch
 import axios from'./axios'; 
 
 

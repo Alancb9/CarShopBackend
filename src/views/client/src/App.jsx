@@ -27,7 +27,7 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [tooltipVisibleGithub, setTooltipVisibleGithub] = useState(false);
-  // const [showPresentation, setShowPresentation] = useState(true);
+
   const [showPresentation, setShowPresentation] = useState(
     () => localStorage.getItem("showPresentation") !== "false"
   );
@@ -134,9 +134,7 @@ function App() {
             <ButtonUser presentacion={setShowPresentation} />
           )}
           
-          {/* <button id = 'iconoUser' className = 'ms-3' onClick={handleIconUserClick}>
-            <span id = 'iconoMO'><FontAwesomeIcon icon={faUser} beat size="xl" style={{color: "#ffffff",}} /></span>
-          </button> */}
+          
         </div>
       </Navbar>
       {/* Seccion de presentacio1n */}
@@ -161,14 +159,11 @@ function App() {
             {/* Rutas para usuarios logeados */}
             <Route element={<ProtectedRoutes />}>
               <Route exact path="/tasks" element={<Tareas />} />
-              {/* <Route exact path="/add-task" element={<FormularioTareas />} />
-              <Route exact path="/tasks/:id" element={<FormularioTareas />} /> */}
               <Route exact path="/cliente" element={<FormClient />} />
               <Route exact path="/vehiculo" element={<FormVehiculo />} />
               <Route exact path="/servicios" element={<Servicios />} />
               <Route exact path="/orden" element={<OrdenTrabajo />} />
               <Route exact path="/exito" element={<Exito />} />
-              {/* <Route exact path="/profile" element={<ProfilePage />} /> */}
               <Route exact path="/citasAgendadas" element={<CitasAgendadas />} />
             </Route>
           </Routes>
